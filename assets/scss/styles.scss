@@ -1,5 +1,5 @@
 // Variables
-$color-gray-1: #999999;
+$color-gray-medium: #999999;
 $color-gray-light: #f7f7f7;
 $color-gray-dark: #333333;
 
@@ -13,7 +13,7 @@ $color-primary-dark: #3d0804;
 $font-stack: "Source Sans Pro", sans-serif;
 
 $header-james-harden: "/assets/img/james-harden.jpg";
-$headshot-james-harden: "/assets/img/james-harden-headshot.jpg";
+$headshot-james-harden: "/assets/img/james-harden-headshot.png";
 
 // Placeholders
 %box-shadow {
@@ -58,15 +58,28 @@ body {
   @extend %border-radius;
   @extend %box-shadow;
   background-color: $color-white;
+  position: relative;
 
   &__side {
+    height: 50rem;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &--back {
+      display: none; // Hide until I'm ready to style the back
+    }
   }
 
   &__header {
     background: linear-gradient(to bottom, $color-primary, $color-primary-dark),
       url($header-james-harden);
-    background-position: center;
-    height: 50rem;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30rem;
     background-blend-mode: multiply;
   }
 }

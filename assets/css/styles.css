@@ -1,41 +1,45 @@
 .card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 17px rgba(0, 0, 0, 0.17);
-}
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 17px rgba(0, 0, 0, 0.17); }
 
 .card {
-  border-radius: 6px;
-}
+  border-radius: 6px; }
 
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html,
 body {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 body {
   background-color: #f7f7f7;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 10px;
-}
+  font-size: 10px; }
 
 .container {
-  max-width: 800px;
-}
+  max-width: 800px; }
 
 .card {
   background-color: #ffffff;
-}
-.card__header {
-  background: linear-gradient(to bottom, #de323c, #3d0804), url("/assets/img/james-harden.jpg");
-  background-position: center;
-  height: 50rem;
-  background-blend-mode: multiply;
-}
+  position: relative; }
+  .card__side {
+    height: 50rem;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    .card__side--back {
+      display: none; }
+  .card__header {
+    background: linear-gradient(to bottom, #de323c, #3d0804), url("/assets/img/james-harden.jpg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30rem;
+    background-blend-mode: multiply; }
 
 /*# sourceMappingURL=styles.css.map */
