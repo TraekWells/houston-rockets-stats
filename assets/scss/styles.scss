@@ -8,7 +8,7 @@ $color-white: #ffffff;
 $color-black: #000000;
 
 $color-primary: #de323c;
-$color-primary-dark: #3d0804;
+$color-primary-dark: #720d06;
 
 $font-stack: "Source Sans Pro", sans-serif;
 
@@ -74,29 +74,41 @@ p {
 .card {
   @extend %border-radius;
   @extend %box-shadow;
-  background-color: $color-white;
   position: relative;
   display: block;
   height: 30rem;
   overflow: hidden;
+  perspective: 50rem;
 
   &__side {
+    background-color: $color-white;
     height: 30rem;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    backface-visibility: hidden;
+    transition: 0.5s all;
 
     &--front {
       display: flex;
       flex-direction: column;
-      display: none;
+      // display: none;
     }
 
     &--back {
       display: flex;
       flex-direction: column;
+      transform: rotateY(180deg);
     }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
   }
 
   &__header {
