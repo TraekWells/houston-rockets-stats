@@ -1,45 +1,168 @@
 .card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 17px rgba(0, 0, 0, 0.17); }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 17px rgba(0, 0, 0, 0.17);
+}
 
 .card {
-  border-radius: 6px; }
+  border-radius: 6px;
+}
 
 *,
 *:before,
 *:after {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html,
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
 
 body {
   background-color: #f7f7f7;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 10px; }
+  color: #333333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
 
 .container {
-  max-width: 800px; }
+  display: block;
+  max-width: 800px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
 
 .card {
   background-color: #ffffff;
-  position: relative; }
-  .card__side {
-    height: 50rem;
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%; }
-    .card__side--back {
-      display: none; }
-  .card__header {
-    background: linear-gradient(to bottom, #de323c, #3d0804), url("/assets/img/james-harden.jpg");
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 30rem;
-    background-blend-mode: multiply; }
+  position: relative;
+  display: block;
+  height: 30rem;
+  overflow: hidden;
+}
+.card__side {
+  height: 30rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.card__side--front {
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+.card__side--back {
+  display: flex;
+  flex-direction: column;
+}
+.card__header {
+  background: linear-gradient(to bottom, #de323c, #3d0804), url("/assets/img/james-harden.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  flex-basis: 55%;
+  position: relative;
+}
+.card__header i {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+.card__content {
+  padding: 10px 20px;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card__content__image {
+  background: url("/assets/img/james-harden-headshot.png"), #ffffff;
+  background-size: cover;
+  background-position: center;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: -35px;
+  display: inline-block;
+  border-radius: 50%;
+}
+.card__content__name {
+  margin-left: 80px;
+}
+.card__content__name .player-name {
+  font-size: 2.4rem;
+}
+.card__content__name .player-nickname {
+  color: #999999;
+  font-size: 1.6rem;
+}
+.card__content__name .seperator {
+  color: #999999;
+}
+.card__content__details {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-top: 5%;
+}
+.card__content__details .label {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #999999;
+}
+.card__content__details .value {
+  font-size: 1.8rem;
+}
+.card__stats {
+  padding: 20px;
+}
+.card__stats .season {
+  color: #999999;
+  text-align: center;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.card__stats .stat-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.card__stats .label {
+  font-size: 1.5rem;
+}
+.card__stats .value {
+  font-size: 2.8rem;
+  color: #be1f28;
+}
+.card__description {
+  background-image: linear-gradient(to bottom, #de323c, #3d0804);
+  flex-grow: 1;
+  color: #ffffff;
+  padding: 20px;
+  font-size: 1.6rem;
+}
 
 /*# sourceMappingURL=styles.css.map */

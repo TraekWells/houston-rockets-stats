@@ -37,39 +37,65 @@ body {
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: $color-gray-light;
   font-family: $font-stack;
-  font-size: 10px;
+  color: $color-gray-dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 .container {
+  display: block;
   max-width: 800px;
+  margin: auto;
 }
 
-// .grid {
-//   display: grid;
-//   grid-template-columns: repeat(12, 1fr);
-//   grid-template-rows: auto;
-//   grid-gap: 20px;
-// }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
 
 .card {
   @extend %border-radius;
   @extend %box-shadow;
   background-color: $color-white;
   position: relative;
+  display: block;
+  height: 30rem;
+  overflow: hidden;
 
   &__side {
-    height: 50rem;
+    height: 30rem;
     position: absolute;
-    display: block;
     top: 0;
     left: 0;
     width: 100%;
 
+    &--front {
+      display: flex;
+      flex-direction: column;
+      display: none;
+    }
+
     &--back {
-      display: none; // Hide until I'm ready to style the back
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -79,7 +105,108 @@ body {
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 30rem;
     background-blend-mode: multiply;
+    flex-basis: 55%;
+    position: relative;
+
+    i {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      color: $color-white;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__content {
+    padding: 10px 20px;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    &__image {
+      background: url($headshot-james-harden), $color-white;
+      // background: firebrick;
+      background-size: cover;
+      background-position: center;
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      top: -35px;
+      display: inline-block;
+      border-radius: 50%;
+    }
+
+    &__name {
+      margin-left: 80px;
+
+      .player-name {
+        font-size: 2.4rem;
+      }
+
+      .player-nickname {
+        color: $color-gray-medium;
+        font-size: 1.6rem;
+      }
+
+      .seperator {
+        color: $color-gray-medium;
+      }
+    }
+
+    &__details {
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+      margin-top: 5%;
+      .label {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        color: $color-gray-medium;
+      }
+
+      .value {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  &__stats {
+    padding: 20px;
+
+    .season {
+      color: $color-gray-medium;
+      text-align: center;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+    }
+
+    .stat-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .label {
+      font-size: 1.5rem;
+    }
+
+    .value {
+      font-size: 2.8rem;
+      color: darken($color-primary, 10%);
+    }
+  }
+
+  &__description {
+    background-image: linear-gradient(
+      to bottom,
+      $color-primary,
+      $color-primary-dark
+    );
+    flex-grow: 1;
+    color: $color-white;
+    padding: 20px;
+    font-size: 1.6rem;
   }
 }
