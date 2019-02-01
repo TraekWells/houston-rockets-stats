@@ -15,6 +15,21 @@ $font-stack: "Source Sans Pro", sans-serif;
 $header-james-harden: "/assets/img/james-harden.jpg";
 $headshot-james-harden: "/assets/img/james-harden-headshot.png";
 
+$header-chris-paul: "/assets/img/chris-paul.jpg";
+$headshot-chris-paul: "/assets/img/chris-paul-headshot.png";
+
+$header-clint-capela: "/assets/img/clint-capela.jpg";
+$headshot-clint-capela: "/assets/img/clint-capela-headshot.png";
+
+$header-eric-gordon: "/assets/img/eric-gordon.jpg";
+$headshot-eric-gordon: "/assets/img/eric-gordon-headshot.png";
+
+$header-james-ennis: "/assets/img/james-ennis.jpg";
+$headshot-james-ennis: "/assets/img/james-ennis-headshot.png";
+
+$header-pj-tucker: "/assets/img/pj-tucker.jpg";
+$headshot-pj-tucker: "/assets/img/pj-tucker-headshot.png";
+
 // Placeholders
 %box-shadow {
   box-shadow: 0 2px 4px rgba($color-black, 0.08),
@@ -69,18 +84,34 @@ p {
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-template-rows: auto;
   grid-gap: 20px;
+
+  @media screen and (max-width: 640px) {
+    grid-template-columns: repeat(1, minmax(250px, 350px));
+    justify-content: center;
+  }
+}
+
+.heading {
+  background-image: linear-gradient($color-primary, $color-primary);
+  color: $color-white;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 .card {
-  @extend %border-radius;
-  @extend %box-shadow;
   position: relative;
   display: block;
   height: 30rem;
-  overflow: hidden;
-  perspective: 50rem;
+  perspective: 150rem;
 
   &__side {
+    @extend %border-radius;
+    @extend %box-shadow;
     background-color: $color-white;
     height: 30rem;
     position: absolute;
@@ -89,11 +120,11 @@ p {
     width: 100%;
     backface-visibility: hidden;
     transition: 0.5s all;
+    overflow: hidden;
 
     &--front {
       display: flex;
       flex-direction: column;
-      // display: none;
     }
 
     &--back {
@@ -112,14 +143,66 @@ p {
   }
 
   &__header {
-    background: linear-gradient(to bottom, $color-primary, $color-primary-dark),
-      url($header-james-harden);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     flex-basis: 55%;
     position: relative;
+
+    &--harden {
+      background-image: linear-gradient(
+          to bottom,
+          rgba($color-primary, 0.9),
+          rgba($color-primary-dark, 0.9)
+        ),
+        url($header-james-harden);
+    }
+
+    &--paul {
+      background-image: linear-gradient(
+          to bottom,
+          rgba($color-primary, 0.9),
+          rgba($color-primary-dark, 0.9)
+        ),
+        url($header-chris-paul);
+    }
+
+    &--capela {
+      background-image: linear-gradient(
+          to bottom,
+          rgba($color-primary, 0.9),
+          rgba($color-primary-dark, 0.9)
+        ),
+        url($header-clint-capela);
+    }
+
+    &--gordon {
+      background-image: linear-gradient(
+          to bottom,
+          rgba($color-primary, 0.9),
+          rgba($color-primary-dark, 0.9)
+        ),
+        url($header-eric-gordon);
+    }
+
+    &--tucker {
+      background-image: linear-gradient(
+          to bottom,
+          rgba($color-primary, 0.9),
+          rgba($color-primary-dark, 0.9)
+        ),
+        url($header-pj-tucker);
+    }
+
+    &--ennis {
+      background-image: linear-gradient(
+          to bottom,
+          rgba($color-primary, 0.9),
+          rgba($color-primary-dark, 0.9)
+        ),
+        url($header-james-ennis);
+    }
 
     i {
       position: absolute;
@@ -138,8 +221,6 @@ p {
     flex-direction: column;
 
     &__image {
-      background: url($headshot-james-harden), $color-white;
-      // background: firebrick;
       background-size: cover;
       background-position: center;
       width: 70px;
@@ -148,6 +229,36 @@ p {
       top: -35px;
       display: inline-block;
       border-radius: 50%;
+
+      &--harden {
+        background-image: url($headshot-james-harden),
+          linear-gradient($color-white, $color-white);
+      }
+
+      &--paul {
+        background-image: url($headshot-chris-paul),
+          linear-gradient($color-white, $color-white);
+      }
+
+      &--capela {
+        background-image: url($headshot-clint-capela),
+          linear-gradient($color-white, $color-white);
+      }
+
+      &--gordon {
+        background-image: url($headshot-eric-gordon),
+          linear-gradient($color-white, $color-white);
+      }
+
+      &--tucker {
+        background-image: url($headshot-pj-tucker),
+          linear-gradient($color-white, $color-white);
+      }
+
+      &--ennis {
+        background-image: url($headshot-james-ennis),
+          linear-gradient($color-white, $color-white);
+      }
     }
 
     &__name {
@@ -185,7 +296,7 @@ p {
   }
 
   &__stats {
-    padding: 20px;
+    padding: 10px 20px;
 
     .season {
       color: $color-gray-medium;
@@ -219,6 +330,20 @@ p {
     flex-grow: 1;
     color: $color-white;
     padding: 20px;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    p:not(:last-child) {
+      flex-grow: 1;
+    }
+
+    a {
+      color: $color-white;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 5rem;
   }
 }

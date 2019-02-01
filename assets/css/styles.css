@@ -1,26 +1,32 @@
-.card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 17px rgba(0, 0, 0, 0.17); }
+.card__side {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 17px rgba(0, 0, 0, 0.17);
+}
 
-.card {
-  border-radius: 6px; }
+.card__side {
+  border-radius: 6px;
+}
 
 *,
 *:before,
 *:after {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html,
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 body {
   background-color: #f7f7f7;
   font-family: "Source Sans Pro", sans-serif;
-  color: #333333; }
+  color: #333333;
+}
 
 h1,
 h2,
@@ -30,116 +36,204 @@ h5,
 h6,
 p {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .container {
   display: block;
   max-width: 800px;
-  margin: auto; }
+  margin: auto;
+}
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-template-rows: auto;
-  grid-gap: 20px; }
+  grid-gap: 20px;
+}
+@media screen and (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(1, minmax(250px, 350px));
+    justify-content: center;
+  }
+}
+
+.heading {
+  background-image: linear-gradient(#de323c, #de323c);
+  color: #ffffff;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.heading h1 {
+  font-size: 3rem;
+}
 
 .card {
   position: relative;
   display: block;
   height: 30rem;
+  perspective: 150rem;
+}
+.card__side {
+  background-color: #ffffff;
+  height: 30rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  transition: 0.5s all;
   overflow: hidden;
-  perspective: 50rem; }
-  .card__side {
-    background-color: #ffffff;
-    height: 30rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    backface-visibility: hidden;
-    transition: 0.5s all; }
-    .card__side--front {
-      display: flex;
-      flex-direction: column; }
-    .card__side--back {
-      display: flex;
-      flex-direction: column;
-      transform: rotateY(180deg); }
-  .card:hover .card__side--front {
-    transform: rotateY(-180deg); }
-  .card:hover .card__side--back {
-    transform: rotateY(0); }
-  .card__header {
-    background: linear-gradient(to bottom, #de323c, #720d06), url("/assets/img/james-harden.jpg");
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    flex-basis: 55%;
-    position: relative; }
-    .card__header i {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      color: #ffffff;
-      font-size: 1.5rem; }
-  .card__content {
-    padding: 10px 20px;
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column; }
-    .card__content__image {
-      background: url("/assets/img/james-harden-headshot.png"), #ffffff;
-      background-size: cover;
-      background-position: center;
-      width: 70px;
-      height: 70px;
-      position: absolute;
-      top: -35px;
-      display: inline-block;
-      border-radius: 50%; }
-    .card__content__name {
-      margin-left: 80px; }
-      .card__content__name .player-name {
-        font-size: 2.4rem; }
-      .card__content__name .player-nickname {
-        color: #999999;
-        font-size: 1.6rem; }
-      .card__content__name .seperator {
-        color: #999999; }
-    .card__content__details {
-      display: flex;
-      justify-content: space-between;
-      flex-grow: 1;
-      margin-top: 5%; }
-      .card__content__details .label {
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        color: #999999; }
-      .card__content__details .value {
-        font-size: 1.8rem; }
-  .card__stats {
-    padding: 20px; }
-    .card__stats .season {
-      color: #999999;
-      text-align: center;
-      font-size: 1.6rem;
-      text-transform: uppercase; }
-    .card__stats .stat-wrapper {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem; }
-    .card__stats .label {
-      font-size: 1.5rem; }
-    .card__stats .value {
-      font-size: 2.8rem;
-      color: #be1f28; }
-  .card__description {
-    background-image: linear-gradient(to bottom, #de323c, #720d06);
-    flex-grow: 1;
-    color: #ffffff;
-    padding: 20px;
-    font-size: 1.6rem; }
+}
+.card__side--front {
+  display: flex;
+  flex-direction: column;
+}
+.card__side--back {
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+.card__header {
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  flex-basis: 55%;
+  position: relative;
+}
+.card__header--harden {
+  background-image: linear-gradient(to bottom, rgba(222, 50, 60, 0.9), rgba(114, 13, 6, 0.9)), url("/assets/img/james-harden.jpg");
+}
+.card__header--paul {
+  background-image: linear-gradient(to bottom, rgba(222, 50, 60, 0.9), rgba(114, 13, 6, 0.9)), url("/assets/img/chris-paul.jpg");
+}
+.card__header--capela {
+  background-image: linear-gradient(to bottom, rgba(222, 50, 60, 0.9), rgba(114, 13, 6, 0.9)), url("/assets/img/clint-capela.jpg");
+}
+.card__header--gordon {
+  background-image: linear-gradient(to bottom, rgba(222, 50, 60, 0.9), rgba(114, 13, 6, 0.9)), url("/assets/img/eric-gordon.jpg");
+}
+.card__header--tucker {
+  background-image: linear-gradient(to bottom, rgba(222, 50, 60, 0.9), rgba(114, 13, 6, 0.9)), url("/assets/img/pj-tucker.jpg");
+}
+.card__header--ennis {
+  background-image: linear-gradient(to bottom, rgba(222, 50, 60, 0.9), rgba(114, 13, 6, 0.9)), url("/assets/img/james-ennis.jpg");
+}
+.card__header i {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+.card__content {
+  padding: 10px 20px;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card__content__image {
+  background-size: cover;
+  background-position: center;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: -35px;
+  display: inline-block;
+  border-radius: 50%;
+}
+.card__content__image--harden {
+  background-image: url("/assets/img/james-harden-headshot.png"), linear-gradient(#ffffff, #ffffff);
+}
+.card__content__image--paul {
+  background-image: url("/assets/img/chris-paul-headshot.png"), linear-gradient(#ffffff, #ffffff);
+}
+.card__content__image--capela {
+  background-image: url("/assets/img/clint-capela-headshot.png"), linear-gradient(#ffffff, #ffffff);
+}
+.card__content__image--gordon {
+  background-image: url("/assets/img/eric-gordon-headshot.png"), linear-gradient(#ffffff, #ffffff);
+}
+.card__content__image--tucker {
+  background-image: url("/assets/img/pj-tucker-headshot.png"), linear-gradient(#ffffff, #ffffff);
+}
+.card__content__image--ennis {
+  background-image: url("/assets/img/james-ennis-headshot.png"), linear-gradient(#ffffff, #ffffff);
+}
+.card__content__name {
+  margin-left: 80px;
+}
+.card__content__name .player-name {
+  font-size: 2.4rem;
+}
+.card__content__name .player-nickname {
+  color: #999999;
+  font-size: 1.6rem;
+}
+.card__content__name .seperator {
+  color: #999999;
+}
+.card__content__details {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-top: 5%;
+}
+.card__content__details .label {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #999999;
+}
+.card__content__details .value {
+  font-size: 1.8rem;
+}
+.card__stats {
+  padding: 10px 20px;
+}
+.card__stats .season {
+  color: #999999;
+  text-align: center;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.card__stats .stat-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.card__stats .label {
+  font-size: 1.5rem;
+}
+.card__stats .value {
+  font-size: 2.8rem;
+  color: #be1f28;
+}
+.card__description {
+  background-image: linear-gradient(to bottom, #de323c, #720d06);
+  flex-grow: 1;
+  color: #ffffff;
+  padding: 20px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.card__description p:not(:last-child) {
+  flex-grow: 1;
+}
+.card__description a {
+  color: #ffffff;
+}
+.card:last-child {
+  margin-bottom: 5rem;
+}
 
 /*# sourceMappingURL=styles.css.map */
